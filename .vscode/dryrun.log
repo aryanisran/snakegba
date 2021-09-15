@@ -1,0 +1,10 @@
+make.exe --dry-run --keep-going --print-directory
+make: Entering directory '/d/PPs/firstgba'
+ 
+[ -d build ] || mkdir -p build
+make BUILDDIR=`cd build && pwd` --no-print-directory -C build -f /d/PPs/firstgba/Makefile
+ 
+make[1]: '/d/PPs/firstgba/firstgba.gba' is up to date.
+ 
+make: Leaving directory '/d/PPs/firstgba'
+ 

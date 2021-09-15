@@ -2,6 +2,12 @@
 .SUFFIXES:
 #---------------------------------------------------------------------------------
 
+# --- Tonc paths ---
+# If not defined as environment variable, assumed to be 2 dirs up
+export TONCCODE	?= D:/PPs/tonc-code/code
+
+include $(TONCCODE)/tonc_rules
+
 ifeq ($(strip $(DEVKITARM)),)
 $(error "Please set DEVKITARM in your environment. export DEVKITARM=<path to>devkitARM")
 endif
@@ -23,7 +29,7 @@ include $(DEVKITARM)/gba_rules
 TARGET		:= $(notdir $(CURDIR))
 BUILD		:= build
 SOURCES		:= asm source resources
-INCLUDES	:= include resources
+INCLUDES	:= include resources 
 DATA		:= data
 MUSIC		:=
 
@@ -48,14 +54,14 @@ LDFLAGS	=	-g $(ARCH) -Wl,-Map,$(notdir $*.map)
 #---------------------------------------------------------------------------------
 # any extra libraries we wish to link with the project
 #---------------------------------------------------------------------------------
-LIBS	:= -lmm -lgba
+LIBS	:= -lmm -lgba -ltonc
  
  
 #---------------------------------------------------------------------------------
 # list of directories containing libraries, this must be the top level containing
 # include and lib
 #---------------------------------------------------------------------------------
-LIBDIRS	:=	$(LIBGBA)
+LIBDIRS	:=	$(LIBGBA) $(TONCCODE)/tonclib
 
 #---------------------------------------------------------------------------------
 # no real need to edit anything past this point unless you need to add additional
