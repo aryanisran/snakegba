@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"tonc.h": "c",
+			"intellisense.h": "c",
+			"object.h": "c",
+			"snake.h": "c",
+			"stdlib.h": "c"
+		}
+	}
+}

@@ -1,21 +1,47 @@
-#include "Intellisense.h"
-#include "tonc.h"
+#include "snake.h"
+
+int xDir, yDir;
+//int xPos, yPos;
+//OBJ body;
 
 int main()
 {
-	//set GBA rendering context to MODE 3 Bitmap Rendering
-	*(unsigned int*)0x04000000 = 0x0403;
 
-	int t = 0;
-	while(1){
-		int x,y;
-		for(x = 0; x < 240; ++x){
-			for( y = 0; y < 160; ++y){
-				((unsigned short*)0x06000000)[x+y*240] = ((((x&y)+t) & 0x1F) << 10)|
-				((((x&y)+t*3)&0x1F)<<5) | ((((x&y)+t * 5)&0x1F)<<0);
-			}
-		}
-		++t;
-	}
-	return 0;
+    REG_DISPCNT= DCNT_MODE3 | DCNT_BG2;
+
+    // POINT tempPos;
+    // tempPos.x = SCREEN_WIDTH/2;
+    // tempPos.y = SCREEN_HEIGHT/2;
+    // body = initobj(16, 16, tempPos, CLR_WHITE);
+    xDir = 0;
+    yDir = 0;
+    initSnake();
+    drawSnake();
+    while(1)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            vid_vsync();
+            key_poll();
+            if(key_tri_horz() != 0) {
+                if(xDir == 0) {
+                    xDir = key_tri_horz();
+                    yDir = 0;
+                }
+            }
+            if(key_tri_vert() != 0) {
+                if(yDir == 0) {
+                    yDir = key_tri_vert();
+                    xDir = 0;
+                }
+            }
+        }
+        
+        M3_CLEAR();
+        
+        moveHead(xDir * 10, yDir * 10);
+        drawSnake();
+    }
+
+    return 0;
 }

@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "tonc.h": "c"
+        "tonc.h": "c",
+        "intellisense.h": "c",
+        "object.h": "c",
+        "snake.h": "c"
     }
 }
