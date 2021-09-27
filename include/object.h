@@ -10,6 +10,8 @@ typedef struct obj {
 } OBJ;
 
 void drawobj(OBJ obj);
+void drawframe(OBJ obj);
+void clearobj(OBJ obj);
 OBJ initobj(int w, int h, POINT pos, COLOR clr);
 
 #endif

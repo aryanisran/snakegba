@@ -9,9 +9,10 @@ typedef struct node {
    struct node* prev;
 } node_t;
 
-void addAtTail(node_t *head, OBJ val);
+void addAtTail(OBJ val);
 void initSnake();
 void drawSnake();
+void clearSnake();
 void moveHead(int dX, int dY);
 void moveBody();
 #endif

@@ -15,6 +15,17 @@ int main()
     // body = initobj(16, 16, tempPos, CLR_WHITE);
     xDir = 0;
     yDir = 0;
+    for (int i = 0; i < 24; i++)
+    {
+        for (int j = 0; j < 16; j++)
+        {
+            POINT tempPos;
+            tempPos.x = i * 10 + 5;
+            tempPos.y = j * 10 + 5;
+            drawframe(initobj(10, 10, tempPos, CLR_GRAY));
+        }
+    }
+    
     initSnake();
     drawSnake();
     while(1)
@@ -36,9 +47,7 @@ int main()
                 }
             }
         }
-        
-        M3_CLEAR();
-        
+        clearSnake();
         moveHead(xDir * 10, yDir * 10);
         drawSnake();
     }

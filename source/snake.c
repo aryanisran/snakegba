@@ -1,44 +1,40 @@
 #include "Intellisense.h"
 #include "snake.h"
-#include "object.h"
 #include <stdlib.h>
 
 const int w = 10;
 const int h = 10;
-node_t *snakeptr = NULL;
 
-void addAtTail(node_t *head, OBJ val) {
-    node_t *current = head;
-    //Point to the tail
-    while(current->next != NULL) {
-        current = current->next;
-    }
+node_t *snakehead = NULL;
+node_t *snaketail = NULL;
 
-    //Now we can add a new variable
-    current->next = (node_t *) malloc(sizeof(node_t));
-    current->next->val = val;
-    current->next->prev = current;
-    current->next->next = NULL;
+void addAtTail(OBJ val) {
+    snaketail->next = (node_t *) malloc(sizeof(node_t));
+    snaketail->next->val = val;
+    snaketail->next->prev = snaketail;
+    snaketail = snaketail->next;
+    snaketail->next->next = NULL;
 }
 
 void initSnake() {
-    snakeptr = malloc(sizeof(node_t));
+    snakehead = malloc(sizeof(node_t));
     POINT temp;
-    temp.x = SCREEN_WIDTH/2;
-    temp.y = SCREEN_HEIGHT/2;
-    snakeptr->val = initobj(w, h, temp, CLR_LIME);
-    snakeptr->next = NULL;
-    snakeptr->prev = NULL;
-    drawobj(snakeptr->val);
-    temp.x = snakeptr->val.pos.x;
-    temp.y = snakeptr->val.pos.y + h;
-    addAtTail(snakeptr, initobj(w, h, temp, CLR_LIME));
-    temp.y = snakeptr->next->val.pos.y + h;
-    addAtTail(snakeptr, initobj(w, h, temp, CLR_LIME));
+    temp.x = 35;
+    temp.y = 5;
+    snakehead->val = initobj(w, h, temp, CLR_LIME);
+    snakehead->next = NULL;
+    snakehead->prev = NULL;
+    snaketail = snakehead;
+    drawobj(snakehead->val);
+    temp.x = snakehead->val.pos.x - w;
+    temp.y = snakehead->val.pos.y;
+    addAtTail(initobj(w, h, temp, CLR_LIME));
+    temp.x = snakehead->next->val.pos.x - w;
+    addAtTail(initobj(w, h, temp, CLR_LIME));
 }
 
 void drawSnake() {
-    node_t *current = snakeptr;
+    node_t *current = snakehead;
     while(current != NULL) {
         drawobj(current->val);
         current = current->next;
@@ -46,29 +42,44 @@ void drawSnake() {
 }
 
 void moveHead(int dX, int dY) {
-    if(snakeptr->val.pos.x + dX  + w/2 < SCREEN_WIDTH && snakeptr->val.pos.x + dX- w/2 > 0) {
+    if(snakehead->val.pos.x + dX  + w/2 < SCREEN_WIDTH && snakehead->val.pos.x + dX- w/2 > 0) {
         if(dX != 0) {
         moveBody();
         }
-        snakeptr->val.pos.x += dX;
+        snakehead->val.pos.x += dX;
     }
-    if(snakeptr->val.pos.y + dY + h/2 < SCREEN_HEIGHT && snakeptr->val.pos.y + dY - h/2 > 0) {
+    if(snakehead->val.pos.y + dY + h/2 < SCREEN_HEIGHT && snakehead->val.pos.y + dY - h/2 > 0) {
         if(dY != 0) {
         moveBody();
         }
-        snakeptr->val.pos.y += dY;
+        snakehead->val.pos.y += dY;
     }
 }
 
 void moveBody() {
-    node_t *current = snakeptr;
-    //Point to the tail
-    while(current->next != NULL) {
-        current = current->next;
-    }
+    node_t *current = snaketail;
     //Move the snake from tail up to the head
     while (current->prev != NULL) {
         current->val.pos = current->prev->val.pos;
         current = current->prev;
     }
+}
+
+void clearSnake() {
+    node_t *current = snakehead;
+    while(current != NULL) {
+        clearobj(current->val);
+        current = current->next;
+    }
+}
+
+bool checkSnakeCollision() {
+    node_t *current = snakehead->next;
+    while(current != NULL) {
+        if(current->val.pos.x == snakehead->val.pos.x && current->val.pos.y == snakehead->val.pos.y) {
+            return true;
+        }
+        current = current->next;
+    }
+    return false;
 }
