@@ -20,7 +20,7 @@ void initSnake() {
     snakehead = malloc(sizeof(node_t));
     POINT temp;
     temp.x = 35;
-    temp.y = 5;
+    temp.y = 15;
     snakehead->val = initobj(w, h, temp, CLR_LIME);
     snakehead->next = NULL;
     snakehead->prev = NULL;
@@ -66,20 +66,30 @@ void moveBody() {
 }
 
 void clearSnake() {
-    node_t *current = snakehead;
-    while(current != NULL) {
-        clearobj(current->val);
-        current = current->next;
-    }
+    clearobj(snaketail->val);
 }
 
-bool checkSnakeCollision() {
+bool checkSelfCollision() {
     node_t *current = snakehead->next;
     while(current != NULL) {
         if(current->val.pos.x == snakehead->val.pos.x && current->val.pos.y == snakehead->val.pos.y) {
             return true;
         }
         current = current->next;
+    }
+    return false;
+}
+
+bool checkBoundsCollision() {
+    if(snakehead->val.pos.x <= 5 || snakehead->val.pos.x >= 255 || snakehead->val.pos.y <= 0 || snakehead->val.pos.y >= 155) {
+        return true;
+    }
+    return false;
+}
+
+bool checkFoodCollision(POINT pos) {
+    if(snakehead->val.pos.x == pos.x && snakehead->val.pos.y == pos.y) {
+        return true;
     }
     return false;
 }

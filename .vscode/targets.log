@@ -9,12 +9,12 @@ make: *** No rule to make target 'all'.  Stop.
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Mon Sep 27 15:25:00 2021
+# Make data base, printed on Wed Sep 29 15:35:41 2021
 
 # Variables
 
-# environment
  
+# environment
 FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
 # environment
 SYSTEMDRIVE = C:
@@ -31,15 +31,15 @@ AR := arm-none-eabi-gcc-ar
 # environment
 USERPROFILE = C:\Users\aryan
 # makefile (from 'Makefile', line 111)
-OFILES :=   main.o object.o snake.o 
+OFILES :=   food.o game.o main.o object.o snake.o 
 # environment
 LOCALAPPDATA = C:\Users\aryan\AppData\Local
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-316a030d-dff3-4663-be9d-2f33b5688bd0-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-f93ff788-19b1-46a7-92e9-d48a2f45ea0d-sock
 # makefile (from 'Makefile', line 77)
 VPATH := /d/PPs/firstgba/asm /d/PPs/firstgba/source /d/PPs/firstgba/resources /d/PPs/firstgba/data 
 # makefile (from 'Makefile', line 83)
-CFILES :=  main.c object.c snake.c 
+CFILES :=  food.c game.c main.c object.c snake.c 
 # environment
 VSCODE_CWD = C:\Users\aryan\AppData\Local\Programs\Microsoft VS Code
 # environment
@@ -59,7 +59,7 @@ OFILES_BIN :=
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_15092_TRDFFSIYXIERKKER
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_24036_VFHBVRIOCBASJROP
 # makefile (from 'Makefile', line 84)
 CPPFILES := $(subst ,,  )
 # environment
@@ -106,8 +106,8 @@ MUSIC :=
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
- 
 # makefile (from 'Makefile', line 81)
+ 
 DEPSDIR := /d/PPs/firstgba/build
 # environment
 PROGRAMFILES = C:\Program Files
@@ -128,7 +128,7 @@ ASFLAGS := -g -mthumb -mthumb-interwork
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 15092
+VSCODE_PID = 24036
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 28)
@@ -158,7 +158,7 @@ HOMEPATH = \Users\aryan
 # default
 MAKECMDGOALS := all
 # makefile (from 'Makefile', line 109)
-OFILES_SOURCES :=  main.o object.o snake.o 
+OFILES_SOURCES :=  food.o game.o main.o object.o snake.o 
 # environment
 DRIVERDATA = C:\Windows\System32\Drivers\DriverData
 # environment
@@ -167,13 +167,13 @@ COMSPEC = C:\WINDOWS\system32\cmd.exe
 WINDIR = C:\WINDOWS
 # makefile (from 'Makefile', line 86)
 BINFILES := 
- 
 # environment
 MAKELEVEL := 0
 # makefile (from 'Makefile', line 7)
 TONCCODE = D:/PPs/tonc-code/code
 # makefile (from 'Makefile', line 119)
 LIBPATHS := -L/opt/devkitpro/libgba/lib -LD:/PPs/tonc-code/code/tonclib/lib
+ 
 # default
 MAKE = $(MAKE_COMMAND)
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 14)
@@ -196,7 +196,6 @@ LIBDIRS := /opt/devkitpro/libgba D:/PPs/tonc-code/code/tonclib
 LOGONSERVER = \\DGDD-NB1928091
 # environment
 VSCODE_LOG_NATIVE = false
- 
 # environment
 USERNAME = aryan
 # environment
@@ -218,6 +217,7 @@ PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
+ 
 USERDOMAIN = DGDD-NB1928091
 # 'override' directive
 GNUMAKEFLAGS := 
@@ -258,7 +258,6 @@ CFLAGS := -g -Wall -O3 -mcpu=arm7tdmi -mtune=arm7tdmi -fomit-frame-pointer -ffas
 # environment
 HOMEDRIVE = C:
 # environment
- 
 PROCESSOR_ARCHITECTURE = AMD64
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
@@ -286,6 +285,7 @@ NM := arm-none-eabi-gcc-nm
 <F = $(notdir $<)
 # default
 SUFFIXES := 
+ 
 # environment
 ALLUSERSPROFILE = C:\ProgramData
 # makefile (from 'Makefile', line 29)
@@ -317,7 +317,6 @@ DATA := data
 # environment
 PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 158 Stepping 10, GenuineIntel
 # variable set hash-table stats:
- 
 # Load=149/1024=15%, Rehash=0, Collisions=26/295=9%
 
 # Pattern-specific Variable Values
@@ -326,19 +325,20 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 158 Stepping 10, GenuineIntel
 
 # Directories
 
-# /d/PPs/firstgba/source (device 1022307455, inode 3377699720598693): 5 files, no impossibilities.
+# /d/PPs/firstgba/source (device 1022307455, inode 3377699720598693): 7 files, no impossibilities.
 # /d/PPs/firstgba/resources: could not be stat'd.
 # resources: could not be stat'd.
 # asm: could not be stat'd.
 # . (device 1022307455, inode 39687971716222198): 15 files, no impossibilities.
 # /d/PPs/firstgba/asm: could not be stat'd.
-# source (device 1022307455, inode 3377699720598693): 5 files, no impossibilities.
+# source (device 1022307455, inode 3377699720598693): 7 files, no impossibilities.
 # data: could not be stat'd.
 # /d/PPs/firstgba/data: could not be stat'd.
 
-# 25 files, no impossibilities in 9 directories.
+# 29 files, no impossibilities in 9 directories.
 
 # Implicit Rules
+ 
 
 %.mb.elf:
 #  recipe to execute (from 'D:/PPs/tonc-code/code/tonc_rules', line 34):
@@ -362,7 +362,6 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 158 Stepping 10, GenuineIntel
 	$(SILENTMSG) $(notdir $<)
 	$(SILENTCMD)$(CC) -MMD -MP -MF $(DEPSDIR)/$*.arm.d $(CFLAGS) -marm -c $< -o $@ $(ERROR_FILTER)
 
- 
 %.arm.o: %.arm.m
 #  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 28):
 	$(SILENTMSG) $(notdir $<)
@@ -432,6 +431,7 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 158 Stepping 10, GenuineIntel
 #  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 94):
 	$(SILENTMSG) $(notdir $<)
 	$(SILENTCMD)$(CC) -MMD -MP -MF $(DEPSDIR)/$*.d -x assembler-with-cpp $(ASFLAGS) -c $< -o $@ $(ERROR_FILTER)
+ 
 
 %.o: %.S
 #  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 99):
@@ -460,7 +460,6 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 158 Stepping 10, GenuineIntel
 # Not a target:
 D:/PPs/tonc-code/code/tonc_rules:
 #  Implicit rule search has been done.
- 
 #  Last modified 2013-03-24 19:56:40
 #  File has been updated.
 #  Successfully updated.
@@ -543,12 +542,13 @@ build:
 # General ('VPATH' variable) search path:
 # /d/PPs/firstgba/asm:/d/PPs/firstgba/source:/d/PPs/firstgba/resources:/d/PPs/firstgba/data
 
-# strcache buffers: 1 (0) / strings = 63 / storage = 663 B / avg = 10 B
-# current buf: size = 8162 B / used = 663 B / count = 63 / avg = 10 B
+ 
+# strcache buffers: 1 (0) / strings = 65 / storage = 677 B / avg = 10 B
+# current buf: size = 8162 B / used = 677 B / count = 65 / avg = 10 B
 
-# strcache performance: lookups = 115 / hit rate = 45%
+# strcache performance: lookups = 117 / hit rate = 44%
 # hash-table stats:
-# Load=63/8192=1%, Rehash=0, Collisions=3/115=3%
-# Finished Make data base on Mon Sep 27 15:25:00 2021
+# Load=65/8192=1%, Rehash=0, Collisions=3/117=3%
+# Finished Make data base on Wed Sep 29 15:35:41 2021
 
  

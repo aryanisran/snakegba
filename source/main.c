@@ -1,6 +1,12 @@
 #include "snake.h"
+#include "food.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
 
 int xDir, yDir;
+OBJ obj;
+bool eaten = false;
 //int xPos, yPos;
 //OBJ body;
 
@@ -22,12 +28,19 @@ int main()
             POINT tempPos;
             tempPos.x = i * 10 + 5;
             tempPos.y = j * 10 + 5;
-            drawframe(initobj(10, 10, tempPos, CLR_GRAY));
+            if(i == 0 || j == 0 || i == 23 || j == 15) {
+                drawobj(initobj(10, 10, tempPos, CLR_GRAY));
+            }
+            else {
+                drawframe(initobj(10, 10, tempPos, CLR_GRAY));
+            }
         }
     }
+    srand(time(NULL));
     
     initSnake();
     drawSnake();
+    spawnFood();
     while(1)
     {
         for (int i = 0; i < 10; i++)
@@ -48,8 +61,19 @@ int main()
             }
         }
         clearSnake();
+        
+        if(checkFoodCollision(foodPos)) {
+            obj = snaketail->val;
+            drawobj(obj);
+            eaten = true;
+        }
         moveHead(xDir * 10, yDir * 10);
         drawSnake();
+        if(eaten) {
+            addAtTail(obj);
+            spawnFood();
+            eaten = false;
+        }
     }
 
     return 0;

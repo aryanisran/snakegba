@@ -10,7 +10,9 @@
 			"intellisense.h": "c",
 			"object.h": "c",
 			"snake.h": "c",
-			"stdlib.h": "c"
+			"stdlib.h": "c",
+			"stdio.h": "c",
+			"food.h": "c"
 		}
 	}
 }
