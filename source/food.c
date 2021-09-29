@@ -21,5 +21,5 @@ void spawnFood() {
         }
     }
     found = false;
-    drawobj(initobj(10, 10, foodPos, CLR_GREEN));
+    drawobj(initobj(10, 10, foodPos, CLR_ORANGE));
 }
