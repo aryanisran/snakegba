@@ -10,11 +10,7 @@ int main()
 {
 
     REG_DISPCNT= DCNT_MODE3 | DCNT_BG2;
-
-    // POINT tempPos;
-    // tempPos.x = SCREEN_WIDTH/2;
-    // tempPos.y = SCREEN_HEIGHT/2;
-    // body = initobj(16, 16, tempPos, CLR_WHITE);
+    srand((unsigned) time(NULL));
     initGame();
     while(1)
     {

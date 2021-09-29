@@ -1,7 +1,6 @@
 #include "game.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 
 int xDir, yDir;
 OBJ obj;
@@ -26,7 +25,6 @@ void initGame() {
             }
         }
     }
-    srand(time(NULL));
     
     initSnake();
     drawSnake();
