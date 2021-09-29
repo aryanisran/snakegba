@@ -42,18 +42,14 @@ void drawSnake() {
 }
 
 void moveHead(int dX, int dY) {
-    if(snakehead->val.pos.x + dX  + w/2 < SCREEN_WIDTH && snakehead->val.pos.x + dX- w/2 > 0) {
-        if(dX != 0) {
-        moveBody();
-        }
-        snakehead->val.pos.x += dX;
+    if(dX != 0) {
+    moveBody();
     }
-    if(snakehead->val.pos.y + dY + h/2 < SCREEN_HEIGHT && snakehead->val.pos.y + dY - h/2 > 0) {
-        if(dY != 0) {
-        moveBody();
-        }
-        snakehead->val.pos.y += dY;
+    snakehead->val.pos.x += dX;
+    if(dY != 0) {
+    moveBody();
     }
+    snakehead->val.pos.y += dY;
 }
 
 void moveBody() {
@@ -81,7 +77,7 @@ bool checkSelfCollision() {
 }
 
 bool checkBoundsCollision() {
-    if(snakehead->val.pos.x <= 5 || snakehead->val.pos.x >= 255 || snakehead->val.pos.y <= 0 || snakehead->val.pos.y >= 155) {
+    if(snakehead->val.pos.x <= 5 || snakehead->val.pos.x >= 235 || snakehead->val.pos.y <= 0 || snakehead->val.pos.y >= 155) {
         return true;
     }
     return false;
