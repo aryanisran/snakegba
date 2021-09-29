@@ -77,7 +77,7 @@ bool checkSelfCollision() {
 }
 
 bool checkBoundsCollision() {
-    if(snakehead->val.pos.x <= 5 || snakehead->val.pos.x >= 235 || snakehead->val.pos.y <= 0 || snakehead->val.pos.y >= 155) {
+    if(snakehead->val.pos.x <= 5 || snakehead->val.pos.x >= 235 || snakehead->val.pos.y <= 5 || snakehead->val.pos.y >= 155) {
         return true;
     }
     return false;
