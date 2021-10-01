@@ -3,6 +3,7 @@
 
 #include "object.h"
 
+//We use a linked list of OBJs to represent the snake, each node in the list is a 10px x 10px OBJ that we can move and draw
 typedef struct node {
    OBJ val;
    struct node* next;

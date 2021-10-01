@@ -10,6 +10,8 @@ bool restart;
 void initGame() {
     xDir = 0;
     yDir = 0;
+
+    //Draw the grid that the snake game will be played on
     for (int i = 0; i < 24; i++)
     {
         for (int j = 0; j < 16; j++)
@@ -32,10 +34,13 @@ void initGame() {
 }
 
 void input() {
+    //This for loop slows down our game, so that one frame of our game occurs every 10 frames of the GBA
     for (int i = 0; i < 10; i++)
         {
             vid_vsync();
             key_poll();
+            //Set our direction variables to the current input using tribools
+            //Only change the direction the snake is going if player is not trying to make a u-turn
             if(key_tri_horz() != 0) {
                 if(xDir == 0) {
                     xDir = key_tri_horz();
@@ -59,13 +64,15 @@ void update() {
         return;
     }
     if(checkFoodCollision(foodPos)) {
-            obj = snaketail->val;
-            drawobj(obj);
-            eaten = true;
+        //When the snake head collides with food, draw the new tail BEFORE the snake moves
+        obj = snaketail->val;
+        drawobj(obj);
+        eaten = true;
     }
     moveHead(xDir * 10, yDir * 10);
     drawSnake();
     if(eaten) {
+        //Only after the snake moves, we link the new tail to the linked list, making it move with the rest of the snake
         addAtTail(obj);
         spawnFood();
         eaten = false;

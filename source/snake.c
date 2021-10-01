@@ -42,6 +42,7 @@ void drawSnake() {
 }
 
 void moveHead(int dX, int dY) {
+    //Only move the head after each node in the body has moved to it's previous node's position
     if(dX != 0) {
     moveBody();
     }
