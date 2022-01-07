@@ -7,8 +7,8 @@ bool found = false;
 void spawnFood() {
     while(!found) {
         //Place the food at a random position on the screen
-        foodPos.x = ((rand() % (22 + 1 - 1) ) + 1) * 10 + 5;
-        foodPos.y = ((rand() % (14 + 1 - 1) ) + 1) * 10 + 5;
+        foodPos.x = qran_range(1, 22) * 10 + 5;
+        foodPos.y = qran_range(1, 14) * 10 + 5;
         node_t *current = snakehead;
         bool overlap = false;
         //Check if the new position is overlapping with the snake, if it is loop and place it at a new random position
